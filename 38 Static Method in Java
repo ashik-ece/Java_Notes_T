@@ -1,0 +1,169 @@
+Reference link : https://www.youtube.com/watch?v=zySudOTN05I&list=PLsyeobzWxl7pe_IiTfNyr55kwJPWbgxB5&index=41
+
+My notes : 
+There are two types of methods :
+  a) Static Method
+  b) Instance Method
+
+- Whenever we want to work with a non -  static Method , we need to create a Object of it
+- To call a non static method, we need a object
+- if we try to call a non static method without object (with the help of class name) we get the error : Cannot make a static reference from a non static mathod [method name] from type [class name]
+- However, We can call a Static Method with the help of the Class name, WITHOUT CREATING ANY OBJECTS.
+- Imp : We can use a static variable inside a static method, but we cannot directly use a non static varible inside a static method [error : Cannot make a static reference to the non static field brand]
+  - WHY?:  becuase non static variable inside a class are called Instance variables, meaninig they will/can be different(or change) for different objects. SO without creating an object, if we try to access using class name, 
+  it gets confused as to which instance variable to show. (As instance variable depends on each object., so without objects we cant call)
+- Although indirectly we can access non static variable inside a static method. Heres how : we need to pass the object itself as a argument in static method :) [we have to also change the static method so that it can accept parameters 
+that is Obj] [ and the instance varibale inside the static method should be used with obj 
+
+(EG:) 
+public static void show1([class name] Obj) {
+  System.out.println(obj.[instance variable 1] + ":" + obj.[instance variable 2] + ":" + static variable ) - NOTE THAT We can mention static variable directly, since static methods accepts static variables.
+}
+
+- Here in above eg, show1 is a staic method
+  - Here, in this indirect method, we are specifying for which object we need to show the value of Instance variable 
+
+
+
+In Java, why do we have the Main method as Static (i.e: Public static void main(String[] args),  why the main method in Java Static?)
+  - Answer : Because if we dont make main static, main becomes a non static method. 
+              Which means, if we want to call main, we first need to create object of Main Class.
+              BUTTT, we know that main is the starting point of execution, so if the execution has not started , how can we create a object of demo.
+              [its the same analogy of egg first or hen first: for egg to exist, we need hen, and without a hen, how can an egg exist. Same issue here as well,
+              if we make main static, it requires creation of object of the class to access main, but main is the stating point of execution, how can we start if we dont have object in the first place. 
+              To eleminate this, we make main Static]
+              By making main static, we make it so that Main doesnt require any objects to start executing.
+
+
+
+
+
+Offical Class Notes:
+
+
+In this lecture we are discussing:
+1)What is use static keyword in java? (discussed in static variable lecture)
+2)At which place we can use static keyword. 
+3)when memory get allocated (discussed in static variable lecture)
+4)static variable vs instance variable(discussed in static variable lecture)
+5)static block vs non static method (discussed in static block lecture)
+6)static method vs non static method (discussed in this lecture)
+
+#1
+Use of static keyword
+= when we are using static keyword with variable, block, method it become
+independent of object. 
+e.g class{
+    static int a=5;
+}
+= a is not dependent on object .if we have two object obj1 and obj2 then both object able to access this 
+variable.
+= when we are using static it become independent to object.
+
+#2
+Four place we can use static keyword 
+a) before variable declaration e.g class Calc{ static int s; }
+b) before a block  class Calc{  static {System.out.println("this is static block);}}
+c) during method creation class Calc{public static void add(int num1,int num2){};}
+d) with concept of inner class (It is not discussed in this lecture) 
+class OuterClass {
+  int x = 10;
+  static class InnerClass {
+    int y = 5;
+  }
+}
+#3
+When memory get allocated
+= for that we need to know some term 
+a)stack area b)heap area c)class loader system 
+Step 1: when you compile the code you get .class file 
+Step 2: when you are executing (java MainClass) first class loading to class loader System.
+Step 3: During class loading static variable initialize, static block get executed.
+Step 4: Since, static variable got memory in heap before object creation. Now we can say that it is independent of object.
+
+#4
+Static variable vs instance variable
+
+Class Calc{
+    static int stA=100; //independent of object // we can use this by class name as well as object
+    int  inB=100;  //dependent of object //we can only use this by object
+
+public static void main(String []args){
+Calc obj1=new Calc(); 
+Calc obj1=new Calc();
+//for static variable
+System.out.println(Calc.stA); //use with class name
+System.out.println(obj1.stA);  //use by object name
+
+//for instance variable
+//System.out.println(Calc.inB); //got an error --Cannot make a static reference to the non-static
+System.out.println(obj1.inB); //used by object name reference 
+
+obj1.inB=1000;
+obj1.stA=2000;
+
+//static 
+System.out.println(obj1.stA);//output: 2000
+System.out.println(obj2.stA);//output: 2000 value changed for both obj1 and obj2 
+
+
+//instance 
+System.out.println(obj1.inB); // output: 1000
+System.out.println(obj2.inB); // output: 100 no change in obj2
+}
+}
+
+#5
+static block vs non static block
+= remember static block executed before the execution of static method 
+= non static block executed when you try to create the object and executed before constructor called.
+
+class Calc{
+    static{
+        System.out.println("Static Block");
+        System.out.println("Executed before main");
+    }
+
+    {
+        //non static block
+        System.out.println("Non static block executed before the execution of constructor");
+    }
+
+    public static void main(String []args){
+        System.out.println("main method");
+        Calc c = new Calc(); //non static block executed when we create object 
+        // Help h ; -- this will not execute static block of Help class
+        // Help h = new Help(); this will execute static block of Help class
+        Help.wish(); //-- this will execute static block of Help class
+
+    }
+}
+
+class Help{
+    static {
+        System.out.println("Static block of Help class");
+    }
+    static void wish(){
+        System.out.println("Hello");
+    }
+}
+
+/*
+ PS D:\telusko\january\java-course-telusko\code javac Calc.java
+PS D:\telusko\january\java-course-telusko\code java Calc
+Static Block
+Executed before main
+main method
+Non static block executed before the execution of constructor
+Static block of Help class
+Hello
+ */
+
+#6
+Static method vs non static method
+= remember we can call static method with object reference or class name  e.g ClassName.staticMethod() or objReference.statiMethod()
+= but non static method dependent on object so it can be called only  by object reference. e.g objReference.nonStaticMethod();
+
+Remember one thing:
+i)we can use static property, member inside non static block or method without object creation.
+ii) But we cannot use non static property or method inside static block or method without object creation.

@@ -1,0 +1,65 @@
+Reference link : https://www.youtube.com/watch?v=ndTM5I2vtYQ&list=PLsyeobzWxl7pe_IiTfNyr55kwJPWbgxB5&index=49
+
+MY NOTES:
+
+- Objects are created in heap
+- reference variable pointing to the object is stored in stack
+
+- just like how
+  - int marks = 99; can be written as
+    int marks;
+    marks = 99;
+
+- in the same way, object creation is also two steps
+  - Class obj = new Class(); can be written as :
+  
+  - Class obj; // This is called Reference Creation. (This is where we are getting a reference variable)
+    obj = new Class(); // Here we are creating the object, And assiging the value to Obj.
+
+    - new Class(); -> This is where we create the object. [This is Object Creation, not the entire Class obj = new Class(); line].
+    - And that object is called as Anonymous object, because that object doenst have a name (reference variable).
+- The moment we put new Class(), In our heap memory, it will create an object, and it contains the methods and instance variable of the Class class.
+- Anonymous objects doesnt have any refernce.
+- When we use just new Class();, an object is created in heap, but since we dont have a reference varibale, we wont be able to use it in stack
+- We can use Anonymous object to show values and methods of class, BUT, we can use Anonymous Object ONLY ONCE. WE CANNOT USE IT AGAIN(Because to use anon
+object, we have to use new keyword, and it will create a new object in heap).
+- Every time we say new, a new object will be created in heap.
+
+
+
+OFFICAL CLASS NOTES PROVIDED BY PROF:
+
+In this lecture we will learn:
+
+Object creation in Java
+Anonymous objects in Java
+Difference between Simple objects and Anonymous objects
+
+
+#1
+In JVM, we have both stack memory and heap memory.
+Object is created in the heap memory that contains  variable and methods, it also have some address.
+A obj=new A();
+  obj.show();
+here, A is the classname.
+         obj (reference variable) refers to the address say 101
+    show() is a method that is called using reference variable obj.
+Every time you call an object, it will call the constructor as well.
+Object creation can be done in two ways:
+ 1. Declare an object  - creating a reference
+ 2. Creating an object  - and assigning the value to it
+e,g.,  A obj;
+  obj=new A();
+ *new A() shows that you are creating an object.
+
+Reference of an object is created in the stack.
+
+
+#2 
+Anonymous Objects:- 
+Anonymous objects are simply created by using the new keyword.
+It does not have any reference for an anonymous object.
+e.g., new A();
+A method can directly be called using this object.
+  new A().show();
+We can't use the same anonymous object again. It will be use only for one time.

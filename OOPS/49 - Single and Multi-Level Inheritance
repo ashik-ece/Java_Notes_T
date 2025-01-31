@@ -1,0 +1,44 @@
+Reference link : 
+
+MY NOTES:
+
+- If A inherits B , its single level inheritance.
+- If A inherits B, and B inherits C (thereby A containing values of C), this is known as Multi-level or hierchial inhertance.
+eg :
+    - Lets say, 
+        - Clac - add(),sub()
+        - advCalc - multi(),div()
+        - veryAdvCalc - pow()
+    - Now :
+        - if advCalc extends Calc,
+        and if veryAdvCalc extends advCalc,
+    - VeryAdv Calc will have methods of both Clac and advCalc (because advCalc extends Calc)
+    - VeryAdv Calc takes feature from advCalc, and advCalc takes features from calc, so veryadv calc has feature from both advcalc and calc, this is multilevel
+Offial Notes provided by Naveen Prof:
+
+n this lecture we will learn:
+Types of inheritance in Java
+Single inheritance in Java
+Multilevel inheritance in Java
+Examples related to single and multilevel inheritance
+
+
+Single Inheritance:-
+In single inheritance, subclasses inherit the features of one superclass. 
+Only one parent class exists in single inheritance.
+It is when there are only two classes.
+e.g., 
+Calc class inherits the properties of AdvCalc class.
+Here, Calc - child class
+     AdvCalc - parent class
+
+
+Multi-level inheritance:-
+In Multilevel Inheritance, a derived class will be inheriting a base class, and as well as the derived class also acts as the base class for other classes.
+More than one parent class exists in multilevel inheritance.
+It is when we have multiple layers in between the classes.
+e.g.,
+Calc class inherits the properties of AdvCalc and further AdvCalc inherits the properties of VeryAdvCalc.
+Here, Calc - child class
+     AdvCalc - parent class of Calc & child class of VeryAdvCalc
+     VeryAdvCalc - parent class of both other classes

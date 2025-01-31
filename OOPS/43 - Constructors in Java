@@ -1,0 +1,45 @@
+Reference link :
+
+MY NOTES:
+
+- constructor will have the same name as class name
+- constructor will never return anything ( so no need to mention any return type like void, string etc)
+- constructor will be called automatically (we dont need to manually call constructor)
+- constrcutor will be called everytime we create a new object.
+- we can set default values to the object with the help of constructor
+- even though the default value can be given while defining the instance variable itself, BUT, genrally as a rule of thumb, as a good habit of programmer,
+whenever we want to perform any operation, always do that in a method.(dont do it open while defining). constructor is a method. These are the general standard.
+- Two methods with same name and different parametrs is called method overloading.
+
+
+OFFICAL CLASS NOTES PROVIDED BY PROF:
+
+In this lecture we will see:
+What are constructors in Java/
+Properties and use of a constructor
+Syntax of a constructor
+
+#1
+When you create an object then in the heap memory, it will just create a blank object.
+If you do not assign values than the default values will be assigned like:
+ 0 for int,
+ NULL for string
+We can also define values at the time of the creation of an object by giving our default values.
+
+#2
+Properties of a constructor:
+Constructor is almost similar to a method it has a name and it also has round brackets.
+The change in the constructor with respect to the method is that in the constructor we do not specify the return type.
+The name of a constructor must be the same as the class name.
+There is no need to call a constructor. It gets called automatically at the time of the creation of an object.
+At the time of calling the constructor, memory for the object is allocated in the memory.
+Constructors are called only once at the time of object creation. While method(s) can be called any number of times.
+
+#3
+Syntax of a constructor:
+class human {
+ public Human()
+ {
+  statements;
+ }
+}

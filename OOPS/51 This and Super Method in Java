@@ -1,0 +1,82 @@
+Reference link: https://www.youtube.com/watch?v=u2oT-qogaFI&list=PLsyeobzWxl7pe_IiTfNyr55kwJPWbgxB5&index=54
+
+MY NOTES:
+
+- NOTE : Instansiating a class means creating an object of that class.
+- lets say if B extends A, B is the daughter class and A is the parent class.
+    - When we create a object of B, suprisingly, Construtor of B "AND A Gets created." (because of super(); more on that below)
+- Whenever we create an object of a class, it will call the constructor of subclass AND superclass of both. 
+(technically, when we create a object using new keyword, that new invokes constructor).
+- parameterized constructor : A constructor which takes in value.
+- So using the above example of A and B,
+    - if we create a parametarized constructor, and while creating an object if we pass value as argument, 
+    the new keyword will invoke the parametazied constructor as well the default constructor of superclass (because we didint create any
+    parametirized constructor for the superclass.
+    - Even if we create a parameterized constructor for A, when we create an object of class B (whicch extends A), 
+    only the parameterized constructor of B and the Default constructor of A will be called. (Not the parametiriaed constructor of A, because super() method is not parameterized).
+    - Every constructor in java has a method which is there, even if you dont mention it, and that method is called as super (its the john Cena of constructor)
+    - super(); is the first method that gets called when a constructor is created.
+    - WHAT IS SUPER?? => Super method simply means call the constructor of a superclass.
+        - But which constructor of the superclass?
+            -Answer : The Default constructor. (because the super(); method is empty (doesnt have a parameter).
+    - when a daughterclass parameterized/default constructor is called, first super method gets executed, resulting in calling of default parameter of the superclass
+    then the parameterized/default constructor of the daughter class gets called/executed :) (i hope you understand).
+    - If you want to the super to call the parameterized constructor of the superclass, just make the superclass parameterized (from default).
+    - So when you want to call the parameterized constructor of superclass, you want to explicitly mention super(also by giving it parameters)
+    - NOTE : Every Class in java, which is not extending other classes ,Extends the Object Class. (even if we dont mention it) (john cena)
+        - Object is a Class in Java, which has a lot of methods within itself.
+        - SO the super method of the superclass calls the constructor of the Object Class.
+
+  THIS METHOD :
+      - This() method will execute the constructor of a same class
+      - just like how super() method will execute the constructor of the superclass (parent), this method will call the constructor of the same class (daughter)
+      - if the this() method is non paramterized, it will call the default constructor of the same class and if this(n) method is parametrized, it will call/execute the 
+      parameterized constructor of the same class. [that constructor of the same class may contain super() which might execute the constructor of the superclass, if you dont understnad, watch ref video]
+
+ONE LINER:
+- This(); executes/calls constructor of the same class and super(); executes/ calls the constructor of the superclass(parent). By default, every constructor will have super()
+
+
+NOTES GIVEN BY PROF:
+
+In this lecture we will learn:
+Constructors in Java
+Super method in Java
+Object class in Java
+This method in Java
+Similarities in between this() and super() method
+
+#1
+Whenever you call an object, it will create a constructor of a class.
+When we create an object of a class that it calls the constructor of a sub-class as well as a constructor of a superclass.
+If you do not pass any value in an object, then it will call the default constructor of a class.
+But if you pass the value in an object, then it will call the parameterised constructor of that class.
+
+#2
+Super() method:-
+Every constructor in Java has a method, even if you do not mention it.
+By default, the first statement in every constructor is a method called a super() method.
+Super() method means calls the constructor of a superclass.
+If you do not pass any parameter in a super method, then it will call the default constructor of a superclass.
+If you pass any parameter in a super method, then it will call the parameterised constructor of a superclass.
+To call the parameterised constructor of a parent class, we need to explicitly call the super method.
+
+#3
+Object class:-
+Every class in Java extends the Object class, even if you do not mention it.
+Object is a class in Java that contains a lot of methods.
+So, the super method of a superclass calls the constructor of an object class.
+There is multi-level inheritance in this concept.
+
+#4
+This() method:-
+this() method calls the constructor of the same class.
+If you do not pass any parameter in this method, then it will call the default constructor of the same class.
+If you pass any parameter in this method, then it will call the parameterised constructor of the same class.
+
+#5 
+Similarities in between this() and super() method:-
+We can use both this and super method anywhere except the static area.
+Both this and super method can be used any number of times in a code.
+But both can be used only one time inside a constructor.
+Both are non-static keywords.

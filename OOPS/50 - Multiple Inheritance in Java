@@ -1,0 +1,71 @@
+reference link : 
+
+
+MY NOTES:
+
+- lets say, A is the parent class and B is the child class that extends the parent class.
+- Lets say A has a method called as AMethod and B has a method called as BMethod.
+- if we want to execute BMethod, it will work since BMethod is already in Class B.
+- if we want to execute Amethod, it will work since A is inherited by B, so B can access all the methods of A.
+  - NOTE: When we call a method, the java will search that method in its own class first, if not found, it will go to its parent class and search there.
+- So single level and multi level inheritance works, but multiple inheritance doesnt work.
+- In multiple inhertance, a child has two parent class.
+- Lets say i want to run a method XYZ(), which is present in both the parent classes. so how the complier will choose which parent's method to call first.
+- This creates ambuguity.  hence Java doesnt support multiple inheritance. 
+
+OFFICAL NOTES PROVIDED BY PROF:
+
+
+In this lecture we are discussing:
+1)what is multiple inheritance?
+2)Why Java does not support Multiple Inheritance?
+3)What is ambiguity and not allowed in java?
+
+#1
+Multiple inheritance
+If a particular class inheriting multiple class then this type of inheritance is called multiple inheritance.
+like c++ language there are multiple inheritance like that :
+class A
+{ 
+... .. ... 
+};
+class B
+{
+... .. ...
+};
+class C: public A,public B
+{
+... ... ...
+}; 
+
+But Java not allowed  we have alternate option for that is implementing multiple interface not we will discussing in upcoming lecture.
+#2
+why java not support multiple inheritance?
+=Because of the Ambiguity problem, Java does not support multiple inheritances directly.
+
+#3
+Why it is ambiguous?
+suppose we have some class A, B and c
+class A
+{ 
+... .. ... 
+show(){
+
+}
+};
+class B
+{
+... .. ...
+show(){
+
+}
+};
+class  C extends A,B //assume for some instance java support multiple inheritence
+{
+... ... ...
+show(); 
+//here we get ambiguity since if we allowed multiple inheritance and same two property or method belong to class A and Class B 
+//then how C class use show() method there is ambiguity of choice...
+//that’s why java exclude the concept of multiple inheritance
+
+}; 

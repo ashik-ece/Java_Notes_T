@@ -1,0 +1,59 @@
+reference link : https://www.youtube.com/watch?v=OBYeDzgsOxc&list=PLsyeobzWxl7pe_IiTfNyr55kwJPWbgxB5&index=60
+
+my notes :
+
+- FINAL is a keyword which can be used in variable , method, class.
+
+- Final Variable :
+
+    - lets say we have int num = 8;. We can change the value to 9 in the next line, by num = 10. now the value of num is 10.
+    - if we want to make a variable constant, we use the final keyword. eg : int final num = 10;. Now the value of num is 10 and is fixed and cant be changed.
+    - in c++ we use const and in java we use final.
+    - its always a good practice to make a constant varibale final.
+    - final variable means simply making constants.
+
+ - Final Class :
+   = final keyword is used in a class, to stop other classes inheriting the final class.
+   = NO class can be a subclass (or daughter class) of a final class.
+   = so once we make our class final, we are basicaly stopping inheritance.
+
+- Final method :
+  = final keyword is used in a method, to prevent method overriding.
+  = Once we use final on a method, that method cannot be overriden (or hidden)
+  - cant overide final method in java.
+
+offical notes provided by prof :
+
+In this video we are talking about final keyword:
+
+-- final keyword use with variable , methods and class
+-- if make a variable final then variable become constant
+final int a=5;
+//you cannot reassign a value to a
+-- final class 
+class A{
+public void show(){
+System.out.println("In Calc show);
+}
+
+public void add(int a,int b){
+    System.out.println(a+b);
+}
+}
+
+Suppose someone want to extend your class , but we want to stop inheritance then we need to make final
+-- if you make class final then no one can inherite your class
+-- but you can use the final class by making object of final class
+
+class A{
+    public final void show(){
+        System.out.print("IN A");
+    }
+}
+
+class B extends A{
+    // but you inherit class but you cannot override show() method  if your method is final
+    //since show method is final
+}
+
+-- if you make method as final no one can override your method.

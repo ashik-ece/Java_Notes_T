@@ -1,0 +1,79 @@
+Reference link : https://www.youtube.com/watch?v=8C_YRYXCuwc&list=PLsyeobzWxl7pe_IiTfNyr55kwJPWbgxB5&index=59&t=3s
+
+My notes :
+
+- THis is a run time polymorphism
+- We can mention the type as parent but the object can be of child.
+    - for eg : laptop is a computer,so type can be of conputer and object can be of laptop works fine.
+- eg : lets say B extends A, A is parent and B is child.
+    - B obj = new B();
+        - note :
+            - here,  B is the type of reference variable
+            - obj is called as the reference variable
+            - new B(); - object of class B (which is to be created).
+    this completly works fine. but , we can also reference the variable with type of the parent too
+    ie :
+        A obj = new B();
+    - we can create reference variable of parent and the child classes can hold the objects in that variable
+
+- It is possible to create a reference of a superclass and store the object of the subclass within it.
+- we can also assign a new object to a old variable.
+
+- how this happens in memory is that, 
+    - when an object is created (lets say of class a), it occupies in heap with some address and methods in it.
+      in stack, the object created along with its address (lets say 101).
+    - When we reference the same variable to another object (lets say of class B), it creates a new object with new address(lets say 103) and in stack
+      it stores the new address (103) in the address bar of the old variable (which stored 101).
+- So it is not about the type of reference, but the class of object.
+- SO the same reference obj is behaving differently with differnet objects. (polymorphism)
+- this would be decided at runtime so its called as runtime polymorphism
+- All this concept is called as Dynamic method dispatch (because which method will be called? we would not know untill runtime)
+- so the point is : it doesnt matter what type of varibale we create (the classes should be inherited), but it all depends upon what type of object it has.
+- NOTE : This will only work if inheritance is happeneing, if B doesnt extend A , then this wont work.
+
+Official Notes :
+
+in this video we are discussing method dispatch
+
+-- in previous lecture we had discussed what is polymorphism 
+-- in this lecture we are further talking about run time polymorphism
+-- suppose we have some class A , B and C
+-- class B and C extends A 
+-- in All three class we have show() method 
+-- main() method of Demo we create object of A, B and C but we create only reference of A which can hold
+object of A, B and C .
+class A{
+public void show(){
+    Systeem.out.println("in show A");
+}
+}
+class B extends A{
+public void show(){
+    Systeem.out.println("in show B");
+}
+}
+
+class C extends A{
+public void show(){
+    Systeem.out.println("in show C");
+}
+}
+
+public class Demo{
+    public static void main(String []args){
+        A obj =new A();  
+        obj.show();  //Output: in show A
+
+        obj =new B(); //reference is A (we can use reference of parents) and create object of B  and assign to parents reference variable.
+        obj.show();  //Output: in show B
+
+        obj =new B();  //reference is A (we can use reference of parents) and create object of C and assign to parents reference variable.
+        obj.show();  //Output: in show C
+
+ 
+    }
+}
+
+Note: during compile time we donot which show() method is called from which class.
+    -- we can know during run time which show method is called this is known as run time polymorphism.
+    -- all this concept is class dynamic method dispatch

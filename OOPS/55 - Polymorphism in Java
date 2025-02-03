@@ -2,10 +2,14 @@ Refernece link : https://www.youtube.com/watch?v=6U-0aUBiO5A&list=PLsyeobzWxl7pe
 
 MY NOTES:
 
-- im not so sure, but i think, 
-  - Compile time polymorphism - method Overloading
+- In Java, polymorphism refers to the ability of a message to be displayed in more than one form. 
+- it allows objects to behave differently based on their specific class type.
+- Types of polymorphism
+  - Compile time polymorphism - method Overloading 
+        - Java doesnt support operator overloading.
 
-  - Run time polymorphimsm - Method overriding
+  - Run time polymorphimsm - Method overriding and Virtual functions
+    - run time polymorphism also known as Dynamic Method dispatch.
 
 - Complite Time polym - early
 - run time poly - late

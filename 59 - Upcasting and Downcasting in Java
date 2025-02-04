@@ -1,0 +1,71 @@
+Reference link : https://www.youtube.com/watch?v=Q8cTydJSawQ&list=PLsyeobzWxl7pe_IiTfNyr55kwJPWbgxB5&index=62
+
+My notes :
+
+lets say class A is the parent and class B is the daughter/subclass. by definition of inheritance, B knows/can inherit all the properties and methods of A, but, A doesnt know B exist (can't inherit properties).
+so we use typecasting for objects and classes.
+
+- if we have reference of A and object of B, it will still work - dynamic method dispatch.
+    - what we are doing here is we have an object of subclass and we assign it to a parent class.
+    - we can do this by typecasting as well
+    A obj = (A) new obj B();
+    - This is Upcasting (as we are going up from child to parent) (parent is getting typecasted so upcast)
+    - This happens implicitly BTS, so we dont have to mention it
+
+Reasons for downcasting :
+    - in the above example, even if the object is of B, using obj, we cant call show2 which is in B class. 
+        - WHY? : because obj type is A, and A doesnt know B exist. this is why we require downcasting.
+    - to solve this, we create a new reference variabel of type B and it will work,
+    - but what if i wamt to use the same object, in that case ill typecast (downcast)
+    - B obj1 = (B) obj;
+
+
+
+-  We can create a parent reference and child object - Upcasting ( A obj  = (A) new obj B();)
+and we can also come back to the child reference - downcasting. ( B obj1 = (B) obj;)
+
+Offical notes provided by prof: 
+
+In this lecture we are discussing about:
+what is typecasting  ?
+
+typecasting is way to converting one primitive data type into other data type using implicit or explicit type
+conversion.
+double d=4.5;
+int i=(int)d; //explicit typecasting 
+
+int i1=5;
+double d1=i1; //implicit type conversion
+
+When we are talking about non -primitive data type we have concept of upcasting and downcasting
+condition for upcasting and downcasting:
+-- for that two class should have some parents child  relationship 
+-- if non-primitive data type have no any relationship, upcasting and downcasting is not possible.
+
+class A{
+    public void show1(){
+        System.out.println("In show A)
+    }
+}
+
+class B extends A{
+    public void show2(){
+        System.out.println("In show B");
+    }
+}
+
+class Demo{
+    public static void main(String []args){
+        A obj =(A) new B(); //upcasting 
+        obj.show1();
+       
+    A obj1 =new B(); // upcasting 
+   // obj1.show2(); // you get error and you are not able to call show2() because with parennts reference specialised method of child is not visible
+    here we downcastig to use show2() method
+    ((B)obj).show2(); //downcasting
+    }
+}
+
+Note:
+the object can also be typecasted like the datatypes. Parent and Child objects are two types of objects. 
+So, there are two types of typecasting possible for an object, i.e., Parent to Child and Child to Parent or can say Upcasting and Downcasting

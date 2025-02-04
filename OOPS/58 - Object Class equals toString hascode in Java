@@ -1,0 +1,197 @@
+Reference link : https://www.youtube.com/watch?v=dCt9sfZV8Sg&list=PLsyeobzWxl7pe_IiTfNyr55kwJPWbgxB5&index=62
+
+MY NOTES:
+
+- after defining some properties to a class, and we create a new object of that class, and when we call the object itself [printing](not the protperties but the reference variable itself)
+it will show a random output.
+- that random output is the classname followed by @ then a hexadecimal code.
+
+- Everyime we try to print the object, bydefault BTS it will call the .tostring() method. (even if we dont mention) (because when we call the obj.tostring(), we get the same random code)
+- toString() is not a method of the user defined class, toString() is the method of object Class. 
+  - Remember in previous notes ive mentioned about Object Class. (its a default class that every userdifined class inherits).
+- that random hexadecimal number it prints is the hashcode.
+- hash is used in cryptography and it is a string whicih represents all the data \
+    - hashing happens through a complex hashing algorithm and it will generate a number string which will be of fixed size. (reseacrh more abt hash)
+
+- if we dont have a userdefined toString() method, when we call an object, it will automatically call the toString() method from the object class,
+but if we create a user defined toString method, it wont call the method from the object class but from our user defined class
+    - if we dont have a method in subclass, it will call that method in super class.
+
+
+
+
+Equals to (and ==)
+
+- if we create two objects[using new] (lets say : obj1 and obj2) and lets say if the properties are same,
+    - eg:
+        - Laptop obj1 = new Laptop();
+          obj1.model = "Lenovo yoga"
+          obj1.price = 1000;
+
+          Laptop obj2 = new Laptop();
+          obj2.model = "Lenovo yoga"
+          obj2.price = 1000;
+
+         // boolean result = (obj1 == obj2); // it will output as false. 
+         // boolean result = obj1.equals(obj2); // it will have output as false because since we dont have user defined .equals()method, it calls from the Object Class.
+         // and it compares the two objects by their hexadecimal number. 
+
+         - We dont want to do that, we want to compare them with their values, so to do that, one thing we can do is that
+         we can implement (create) the equals method ourself. and if we do that, then obj1.equals(obj2) will return true (if the value of properties are same)
+         
+         System.out.println(result);
+
+- There are some rules in java about Equals.
+    - When we say two objects are equals,
+        - They should have the same values
+        - And they should also have the same hashcode.
+- We can use template/ autogenerate option in vscode to get those equals and hascode and toString from the IDE (which will perform multiple checks to give best code)
+
+
+🎯 Key Takeaways for quick navigation:
+
+Every class in Java implicitly extends the Object class.
+The Object class provides methods like equals, hashCode, toString, etc., even if not explicitly defined in a class.
+The toString method returns a string representation of the object, including the class name and hash code.
+The hashCode method generates a unique identifier for objects based on their values.
+Using equals method from the Object class compares objects based on their memory addresses (hashcode), but custom equals method can compare based on values.
+Implementing custom equals and hashCode methods ensures proper comparison and adherence to Java best practices.
+IDEs can automatically generate equals and hashCode methods based on selected variables, simplifying implementation.
+Understanding and utilizing methods from the Object class such as toString and equals is essential in Java programming.
+
+TLDR for those who don't get it:
+1. Object Class is inheritated by all class automatically. When we have to compare 2 objects, the objects are compared by their hashcode (unique reference address you will learn later) 
+anyway the thing is we don't want to compare objects based on hashcode so we override the equals method and write our own logic to compare the objects based on values and not hashcode.
+2. toString method is automatically implied at printing objects, when we type System.out.println(obj);
+it is actually doing System.out.println(obj.toString()); where the output would be represented in form Class+@+Hashcode of the object.
+We can change this by again Overriding the method and writing our own logic to print when printing objects.
+3. hashcode is the address which we talked about earlier, we can change what unique identifier is used for the hashcode place for comparision.
+Note:
+toString and equals method work differently for Strings, they are part of String class and work  normally,
+but when it comes to objects then above logic occurs since String class is inherited by Objects class where object class wrote new implementation for these methods.
+
+
+Official notes provided by Prof:
+
+In this lecture we are discussing about object class:
+
+-- every class in java inherit object class
+-- in this lecture we see some member method of object class
+
+public native int hashCode();
+public boolean equals( Object);
+public  String toString();
+
+1)hashCode() method:
+In Java, the hashCode () method is a method that is defined in the Object class, 
+which is the parent class of all classes in Java. It returns an integer value that 
+represents the unique hash code of an object.
+
+2)equals(Object) method:
+equals(Object obj) is the method of Object class. This method is used to compare 
+the given objects. It is suggested to override equals(Object obj) method to get our own equality condition on Objects.
+
+3)toString() method:
+We typically generally do use the toString() method to get the string representation of an object. It is very important 
+and readers should be aware that whenever we try to print the object reference then internally toString() method is invoked. 
+If we did not define the toString() method in your class then the Object class toString() method is invoked otherwise our 
+implemented or overridden toString() method will be called.
+
+case 1: class which not override object class toString(), hashCode(), equals() method
+class Mobile{
+   String model;
+   int price;
+}
+
+class Main{
+    public static void main(String []args){
+       Mobile mb1=new Mobile();
+       mb1.model="Apple";
+       mb1.price=100000;
+
+      Mobile mb2=new Mobile();
+      mb2.model="Apple";
+      mb2.price=100000;
+
+   
+System.out.println(mb1); //Internally mb1.toString() is called and print Mobile@4617c264
+System.out.println(mb2); // Internally mb2.toString() is called and print Mobile@36baf30c
+ 
+
+        //use of equals() method to compare to object
+        boolean result =mb1.equals(mb2); //right now it give false result because by default implementation of equals() method compare reference of two objects
+        System.out.println(result); //false 
+
+        //use of hashCode()
+       System.out.println(mb1.hashCode()); //1175962212
+       System.out.println(mb2.hashCode());  //918221580 , provide some unique value 
+    }
+}
+
+case 2: class can override object class hashCode(), toString(), equals()
+class Mobile{
+    String model;
+    int price;
+
+    @Override
+    public String toString(){
+        return "Model: "+model+" and price: "+price;
+    }
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((model == null) ? 0 : model.hashCode());
+        result = prime * result + price;
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Mobile other = (Mobile) obj;
+        if (model == null) {
+            if (other.model != null)
+                return false;
+        } else if (!model.equals(other.model))
+            return false;
+        if (price != other.price)
+            return false;
+        return true;
+    }
+ 
+}
+
+class Main{
+    public static void main(String []args){
+        Mobile mb1=new Mobile();
+        mb1.model="Apple";
+        mb1.price=100000;
+
+        Mobile mb2=new Mobile();
+        mb2.model="Apple";
+        mb2.price=100000;
+
+        //use of toString() method,  overrides method 
+        System.out.println(mb1); //Internally mb1.toString() is called and print Model: Apple and price: 100000
+        System.out.println(mb2); // Internally mb2.toString() is called and print Model: Apple and price: 100000
+ 
+        //use of equals() method to compare two object, overrides method
+        boolean result =mb1.equals(mb2); //right now it give true result because we override equals() method
+        System.out.println(result); //true
+
+        //use of hashCode()
+       System.out.println(mb1.hashCode()); //1967873639 due to overrides hashcode method
+       System.out.println(mb2.hashCode());  //1967873639  
+
+       System.out.println(mb1==mb2); 
+    }
+}
+
+Note: it is not mandatory to override every member method of object class but it is advice able 
+to override toString() and equals() method to compare and print own object.

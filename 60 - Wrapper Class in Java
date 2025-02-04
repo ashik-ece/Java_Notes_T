@@ -1,0 +1,106 @@
+reference link : https://www.youtube.com/watch?v=Fyc86kVIePE&list=PLsyeobzWxl7pe_IiTfNyr55kwJPWbgxB5&index=63
+
+my notes :
+
+- Java is not purely object oriented.
+- WKT, every class in java extends object class, but not the primitve values. (int, float, boolean etc). they are primitive types , not object type
+- primitive types has its own advantages, it has fixed size so it increases performance.
+- but there are certain features in java that only work with objects. eg : collection framework. ( in collection we cant have primitive type, we need to have object type).
+this is why Java introduces Wrapper class.
+
+
+WRAPPER CLASS : WHAT IS IT?
+  - For every primitive type, we are going to have a class for it. (Wrapper Class) - it is a wrapper around a primitive type.
+    - int -> Integer
+      char -> Character
+      double -> Double
+  - Here the Integer, Character etc are the classes which extends the object class.
+  - int num = 7;
+    Integer num1 = new Integer(8); // implementation (depreciated)
+    // better way to implement
+      Integer num1 = 8; // no depreceation
+
+- BOXING:
+    - When we take a primitive value and storing that in an object, its called as boxing.
+      - eg : Integer num1 = new Integer (num); // from above example.
+
+            //better way
+            Integer num1 = num; //boxing implements automatically BTS - this process is knowwn as autoboxing.
+            - num1 - object , num - primitive data
+            when a primitive data is converted into an object automatically, its called as autoboxing.
+
+
+  - from above example, if we want to convert object to a primitive type. [UNBOXING}
+    -
+    int num = 7;
+    Integer num1 = num;
+
+    int num2 = num1.intValue(); // returns the value of num1 object's integer value. 
+    System.out.println(num2);
+  - This process is called as Unboxing.
+
+  - and if it happens automatically? [AUTO UNBOXING}
+    - int num = 7;
+    Integer num1 = num;
+    int num2 = num1; // returns the value automatically BTS. [auto unboxing]
+    System.out.println(num2); 
+
+- Autoboxing : When we store a primitive type in the object automatically.
+- Auto Unboxing : When we take out the primitive value from the object.
+
+Another feature of Integer Class (ParseInt)
+
+- Lets suppose we have a interger in a string, and we want to perform some operations, we cant do it in primitive type. so here we make of Integers class's one of the method called as ParseInt();
+- eg : String str = "12";
+       int num3 = Integer.parseInt(str) // parseInt will take the string and convert that into interger.
+       System.out.print(num3*3); // this will perform the operation without any errors
+       
+
+offical notes by prof :
+
+In this lecture we are discussing about wrapper class:
+if you want to store integer value you store in int
+java provide primitive data type 
+thats why java is 99.9 % object oriented programming
+primitive data types helps us to improve the performance 
+but certain feature are work only when we work with objects
+for collection framework -- we need non primitive type data as input 
+
+byte -Byte
+int - Integer 
+long -Long
+char- Character
+double -Double
+float -Float 
+boolean -Boolean
+
+Boxing:It is manual method to convert primitive type data into non-primitive type .
+e.g 
+int num=7;
+Integer num1=new Integer(8); //boxing
+
+UnBoxing: It is manual method to convert non-primitive data type to primitive type.
+e.g
+int num2=num1.intValue(); //unboxing
+
+AutoBoxing:It is automatic conversion of primitive type data into non-primitive data type.
+int num3=5;
+Integer num4=num3; //autoboxing
+
+AutoUnBoxing:It is automatic conversion of non primitive type data into primitive data type.
+int num5=num4; //autounboxing
+
+int num=7;
+how to store data as Object
+Integer num1=new Integer(8); //this syntax is depreciated 
+Integer num1=Integer.valueOf(8); //Now we use this syntax
+Integer num1=8; //autoboxing 
+int num2=num1.intValue();//unboxing 
+int num3=num1; //autounboxing 
+
+--convert string into int type using parseInt
+String str="12";
+int num4=Integer.parseInt(str); 
+
+--Convert number into String 
+String str1=Integer.toString(23); //convert number into string

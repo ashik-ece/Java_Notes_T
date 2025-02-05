@@ -1,0 +1,79 @@
+Reference link : https://www.youtube.com/watch?v=UVOztdkD7WE&list=PLsyeobzWxl7pe_IiTfNyr55kwJPWbgxB5&index=65
+
+my notes :
+
+- A class inside a class - Inner Class.
+- we need objects to call methods and attributes (variable) of non static class.
+- to create an object of inner class :
+    - We need object of outer class first.
+            -WHY? :    
+                - if we want to call non static method in outerclass , we need object of outerclass (since its non static)
+                - In the same way, if we want to create an object of innerclass, we need object of outerclass, because that is a non static method.
+        - SO, if we want to create an object of innerclass, (which is B in the example below), 
+            - we need to specify where it belongs to (in the eg : B belongs to A, so A.B)
+            - And then we need the object of the outer class (which is obj in the eg) to create the object of the inner class.
+
+                class A {
+
+                    public void show() {
+                        System.out.println("in show");
+                    }
+                    Class B {
+                    public void config () {
+                        System.out.println("In config");
+                        }
+                    }
+                }
+
+                public class Demo
+                {
+                public static void main(String[] args) 
+                    {
+                        A obj = new A();
+                        obj.show();
+
+                        A.B obj1 = obj.new B();
+                        obj1.config();
+                    }
+                }
+
+        - FOR STATIC Inner CLASS:
+            - if the inner class is staic, as we know, we dont need an object to call the methods of inner class. (we can call with the class name itself).
+                -eg :
+                        A.B obj1 = new A.B(); [we can call with the help of A(outer class) itself]
+                        
+ - NOTE : We cannot make a outer class static, if it contains inner class
+
+official notes provided by prof:
+
+In this lecture we will learn:
+What is an inner class in Java?
+Static inner classes in Java
+Advantages Of inner class
+
+#1
+Inner Class:-
+We can also create a class inside another class.
+ class A
+ { 
+  class B
+  {
+  }
+ }
+You can call the method of class B by using the dot operator in between both classes A and B.
+ A.B obj= new B();
+A dollar sign will be introduced in a class name that has an inner class indicating two different classes.
+ A$B. class
+You also need to create an object of the outer class, to call the methods of an inner class.
+
+#2
+Static Inner Class:-
+An inner class can also be declared as static.
+When an inner class is declared as static, then you do not need to create an object for it.
+But an outer class can not be made static.
+
+#3
+Advantage of inner class:-
+Nested classes represent a particular type of relationship that is it can access all the members of the outer class, including private.
+Nested classes make the code more readable and maintainable.
+It makes the code more optimized.

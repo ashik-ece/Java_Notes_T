@@ -1,0 +1,41 @@
+Reference Link : https://www.youtube.com/watch?v=IvXf2pDCr5s&list=PLsyeobzWxl7pe_IiTfNyr55kwJPWbgxB5&index=77
+
+My notes :
+
+- If we have one statement (which is an expression) with return type , we dont need to specify return , that expression will be considered as return
+- If you are calling a function/method by passing the objects, we can also use lambda expression.
+- In collection we can see how we pass the lambda expression as argument.
+- Lambda expression only works with functional Interface.
+
+Official Notes provided by Prof:
+
+In this lecture we are discussing about lambda expression:
+ 
+#1
+ -- if we have a functional interface 
+  interface A{
+   int add(int i, int j);
+  }
+in this case, we return int type from add a method for that we can write a lambda expression 
+in different ways.
+-- if we have a single statement you do not need of curly braces
+A obj1 =(i,j)- return i+j;
+
+-- if we want to return something in a single statement, no need to mention the return keyword
+A obj2 =(i,j)-i+j;
+
+#2 
+Example:
+ class Main{
+    public static void main(String[] args){
+        // Anonymous class with lambda expression 
+        //if you have single statement and want to return something then you need not to write return keyword and curly braces
+       A obj= (i,j)- i+j;
+         System.out.println(obj.add(5,6));
+//lambada expression works with functional interface
+    }
+ }
+
+ interface A{
+    public int add(int i,int j);
+ }

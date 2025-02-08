@@ -2,6 +2,11 @@ Reference link : https://www.youtube.com/watch?v=5r_ERSm7NKE&list=PLsyeobzWxl7pe
 
 My notes :
 
+- 3 types of errors:
+    - i) Compile time error (spelling mistake, syntactical error  etc)
+    - ii) Run time error
+    - iii) Logical error (bugs) 
+
 Official Notes provided by Prof :
 
 - In this lecture we are discussing about Exception:

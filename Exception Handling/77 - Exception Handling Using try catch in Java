@@ -1,0 +1,79 @@
+Reference link : https://www.youtube.com/watch?v=osEjmECD8bI&list=PLsyeobzWxl7pe_IiTfNyr55kwJPWbgxB5&index=80
+
+my notes :
+
+- it is recomended to put only critical statement inside try block (we can put normal/all statement as well)
+- we can put as many try catch block as we can
+-  try will try to execute the statement,
+    - if everything goes good, it will execute the statement
+    - if it throws an error, we will catch that error using catch and we can use it
+    - the remaning part of the execution will happen if we use try catch (if we didnt use try catch, then the exection stops)
+    - if theres an error with try, then we can execte catch block
+    - catch block will only be executed in case of exception (otherwise skipped)
+    
+
+Official notes provoided by prof :
+
+In this lecture we are discussing how to handle exception using try-catch:
+-- Exception handling is a mechanism in Java that allows developers to handle 
+and recover from errors and exceptional conditions that may occur during the execution of a program. 
+-- One way to handle exceptions in Java is by using the try-catch block.
+
+General Syntax of try -catch to handle exception:
+try {
+    // code that may throw an exception
+} catch (ExceptionType1 e1) {
+    // code to handle the exception of type ExceptionType1
+} catch (ExceptionType2 e2) {
+    // code to handle the exception of type ExceptionType2
+} finally {
+    // optional block of code that is executed regardless of whether an exception was thrown or not
+}
+
+we will discussing about everything try, catch ,finally and ExceptionType one by one
+-- in this lecture we are only deal with single catch statement with try
+
+
+//  try to handle the exception 
+class Main{
+      public static void main(String[] args) {
+         int i=4; //normal statement
+         try{
+               int a = 10/0; //critical statement
+               /*Not handling excpetion then
+               if you not handle the exception then it will be thrown to the JVM
+               and JVM will terminate the program abnormally
+               and it will not execute the remaining statements
+               */
+            
+                 /*
+                 if you handle the exception then it will not be thrown to the JVM
+                 and JVM will not terminate the program abnormally
+                 and it will execute the remaining statements
+                 */
+
+         }catch(Exception e){
+               System.out.println("Some exception occured");
+         }
+         System.out.println("We are coming out of the try catch block successfully");
+
+
+      }
+   
+}
+-- In the above code, the try block contains the code that may throw an exception. 
+The catch block catches the exception of a specific type and handles it. 
+
+
+-- statemtns of two types
+ i)normal statements
+ Normal Statements:
+Normal statements are statements that do not require any special handling, and they are executed in a normal sequence.  
+e.g Variable declarations and assignments: These statements are used to declare and assign values to variables.
+
+ ii)critical statements
+Critical statements are statements that can cause an exception or error, and they require special handling.  
+Handle using :
+throw statements: These statements are used to throw an exception.
+try-catch statements: These statements are used to handle exceptions.
+finally statements: These statements are used to specify a block of code that is always executed, whether an exception is thrown or not.

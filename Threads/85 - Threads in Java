@@ -26,5 +26,6 @@ CPU has a concept of time sharing which means each process runs for some short p
 We can also divide our tasks into small units.
 In the same task or a program, we can have multiple threads running at the same time.
 Thread is light-weight and it is the smallest unit of a task. 
+We can run multiple threads at the same time.
 Multithreading:-
 Multithreading is a system in which many threads are created from a process through which the computer power is increased. 

@@ -9,6 +9,26 @@ my notes :
 - we cannot create objects in interface.
 
 - List is an Interface, which is implemented by ArraList and LinkedList Classes.
+
+- The LinkedList class has all of the same methods as the ArrayList class because they both implement the List interface. 
+  This means that you can add items, change items, remove items and clear the list in the same way.
+
+
+LIST :
+
+- Its an Interface
+- list.add(0); - add
+- list.set(0,1000) - update value based on index
+- list.remove(0) - delete
+- list.get(0) - get single element based on index
+- list.contains(1999) - search for value
+- list.size() - size/length of list.
+
+- ArrayList and LinkedList both have same method because both implement list interface.
+
+- difference betweewn array and arraylist is , array is fixed in size and arraylist is dynamic
+
+
 official notes provided by prof:
 
 In this lecture we will learn:

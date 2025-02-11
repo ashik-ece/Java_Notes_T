@@ -6,7 +6,9 @@ my notes :
 - but we have to import java.uitl package. (where collection is there)
 - collection is an interface, which implements certain interfaces (like arraylist, stack, map etc)
 - every number in the arraylist is an object. (not an int, but an object of Integer Class)
+- we cannot create objects in interface.
 
+- List is an Interface, which is implemented by ArraList and LinkedList Classes.
 official notes provided by prof:
 
 In this lecture we will learn:

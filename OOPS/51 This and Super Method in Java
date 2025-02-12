@@ -27,6 +27,29 @@ MY NOTES:
         - Object is a Class in Java, which has a lot of methods within itself.
         - SO the super method of the superclass calls the constructor of the Object Class.
 
+
+- Super keyword:
+        - Automatically calls the constructor of the parent class.
+        - DOES NOT CALL the methods of the parent class UNLESS super keyword is stated explicitly.
+Key Differences Between Methods and Constructors
+Methods in a child class do NOT automatically call parent methods unless we explicitly use super.method().
+Constructors in a child class automatically call the parent class constructor first (even without super()).
+
+- if B extends A, 
+    - when we call the constructor of B, A's constructor will be called first before B.
+    - but A's method will not be called unless we mention super keyword.
+            - if we do mention super keyword, then if :
+                - super is defualt : calls the default method of parent. eg : super.method()
+                - super is parameterized : calls the parameterized method of parent
+✔ For methods: Parent methods are NOT called unless super.method(); is explicitly used.
+✔ For constructors: The parent constructor IS automatically called before the child constructor, even if super(); is not written explicitly.
+✔ If you don't want the parent constructor to be called, you cannot prevent it—Java always ensures the parent constructor is executed first in an inheritance hierarchy.
+
+
+when a child class extends a parent class and you create an object of the child class,
+invoking a method that is defined in both the parent and child classes will typically call the method of the child class first. (it will only call the child class - method overrriding)
+If you explicitly want to call the method from the parent class within the method of the child class, you use super() to access and invoke the parent class's method.
+
   THIS METHOD :
       - This() method will execute the constructor of a same class
       - just like how super() method will execute the constructor of the superclass (parent), this method will call the constructor of the same class (daughter)

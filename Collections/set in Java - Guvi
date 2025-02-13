@@ -1,0 +1,79 @@
+SET:
+  - Set is an Interface like List and hence, it cant instansiate/create objects. , hence we have to use implentation classes to use the Set collection.
+
+It is an unordered collection of objects in which duplicate values cannot be stored.
+- Implementation classes : Hashset, LinkedHashset, Treeset
+
+// Java Program to Implementing Set Interface
+import java.util.HashSet;
+import java.util.Set;
+
+public class SetCreationExample {
+    
+      public static void main(String args[]) 
+    {
+        
+        // Create a Set using HashSet
+        Set<String> s = new HashSet<>(); 
+
+        // Displaying the Set
+        System.out.println("Set Elements: " + s);
+    }
+}
+
+- We cannot update value in Set, UPDATE IS NOT ALLOWED.
+- There is no get method.
+- CRUD operations:
+    - Create : s.add(100);
+    - REMOVE : s.remove(100);
+    - we cannot update value
+    - SEARCH : s.contains(100);
+    - There is NO GET METHOD (we cannot get one value in a set)
+
+- Create, Add, delete, search is the only operation which is possible in set
+- we can write for each loop to get the entire values.
+- forloop is supported but getmethod is not.
+- The Add, delete and search method is same for all Hashset, Linkedhashset and treeset.
+
+HASHSET:
+HashSet in Java implements the Set interface of Collections Framework. It is used to store the unique elements and it doesn’t maintain any specific order of elements.
+
+  - Hashset is used for unordered random set value
+  - no duplicate value is printed.
+  - Searching Inside an array and Arraylist is a time consuming process, because the iterator/pointer goes to each value and checks. this is highly inefficient and time consuming.
+  - In hashset, all values are hashed.(encrypted)
+  - hashing is done by hasing algorithm
+  - Since all the values/elements are hashed, when we use .contains() method, the iterator/pointer doesnt go to all the elements, it directly check the hashvalue and match/find the 
+  element. This makes this searching process highly efficient in hashing.
+  - The objects that we insert into the HashSet do not guarantee to be inserted in the same order.
+    The objects are inserted based on their hashcode. This class also allows the insertion of NULL elements
+  - faster than linkedhashset.
+  
+
+    Set<E> set = new HashSet<>();
+LinkedHASHSET:
+  - Set <E> set = new LinkedHashSet<>();
+  - LinkedHashset is used for ordered set. it maintain order of the way which we input.
+  - In LinkedHashset, the same hashing process happens (like in hashset), but here in addition to hasing, the elements are linked. (java will maintain an order)
+    - by using linkedlist the order will be tracked.
+  - LinkedHashset is slower than hashset because in addition to hashing, LinkedHashset also needs to maintaing the linklist and maintain order.
+  - get method is not possible in all set, including linkedhashset
+  - LinkedHashSet class which is implemented in the collections framework is an ordered version of HashSet that maintains a doubly-linked List across all elements. 
+    When the iteration order is needed to be maintained this class is used. 
+    When iterating through a HashSet the order is unpredictable, while a LinkedHashSet lets us iterate through the elements in the order in which they were inserted.
+TREESET
+  - Set <E> set = new TreeSet<>();
+  - whatever element which we add to a treeset will be sorted in an alphebetical order.
+  - If we want to store unique values and sort the values, we go with TreeSet.
+
+  - TreeSet class which is implemented in the collections framework and implementation of the SortedSet Interface and SortedSet extends Set Interface.
+    It behaves like a simple set with the exception that it stores elements in a sorted format.
+    TreeSet uses a tree data structure for storage. Objects are stored in sorted, ascending order. But we can iterate in descending order using the method TreeSet.descendingIterator()
+
+
+
+- If we want to store unique values and dont care about order, go for HASHSET.
+- if we want to store unique values and want to maintain order, go for LinkedHashet.
+- if we want to store unique values and want to sort the values, go for Treeset.
+
+ 

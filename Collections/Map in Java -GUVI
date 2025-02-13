@@ -1,0 +1,92 @@
+MAP :
+- we can save two values at a time with a help of Map (eg: name and salary at a time) 
+- The Map data structure in Java is implemented by two interfaces, the Map Interface and the SortedMap Interface.
+  Three primary classes implement these interfaces HashMap, TreeMap, and LinkedHashMap.
+- Maps are perfect to use for key-value association mapping such as dictionaries. 
+- Map<String, Integer> map = new HashMap<>();
+- side tip : we will be using hashmap 60% of the time.
+- Key MUST BE UNIQUE (if there are two values with same key, the one with updated/latest value is picked)
+- Keys should not be duplicated.
+
+CRUD operations in Map:
+
+- Create : 
+    - Map <String, Integer> map = new HashMap<>(); (or LinkedHashMap, TreeMap)
+
+- Add :
+    - map.put(John, 1000);
+      map.put(Adam,5000);
+-  In Map, the first value is called as key and second value is called as Value.
+    - KeyValue pair.
+
+- Update :
+    - We cannot update the key, we can only update the value.
+    - We can update the value by using put() method again.
+
+- delete :
+    - map.remove([key]) eg : map.remove("Adam");
+
+- Retrive :
+    - map.get([key])
+    - eg : System.out.println(map.get("Adam"));
+    - we will get the value.
+
+- size :
+    - map.size()
+    - System.out.println(map.size());
+
+- Search :
+    - Using .contains() method.
+    - There are two contains, 
+            - Contains Key
+            - Contains value.
+    - System.out.println(map.containsKey("Adam"));
+    - System.out.println(map.containsValue(5000));
+
+- keyset:
+    - all the keys are given in a map by using .keyset() method.
+    - Set<E> keys = map.keyset(); // eg
+    - return type is Set.
+        - because : keys cannot be duplicate, it has to be unique. So the return type is Set.
+
+- foreach loop :
+    - for(String n : keys) {
+        System.out.println(n);
+    }
+
+- map.values :
+    - Gives you all the values of a Map.
+    - Return type is Collection.
+    - Collection <E> values = map.values();
+    - for(Integer n : Value) {
+        System.out.println(n); 
+    }
+    - Collection is an Interface which is implemented even by List ,set ,map
+
+- entrySet(): 
+    - A key and a value combined is called as an entry. (it is an entry in a map)
+    - each of the pair is called as an entry.
+    - entryset returns all the  pairs/entries in a map.
+    - Return type is : Set (all the entry will be unique due to the key values being unique)
+    - Set<map.Entry<E,E>> entries = map.entrySet();  
+    - for(Map.Entry<E,E> n : entries) {
+        System.out.println(entry.getKey() + " " + entry.getValue());
+    }
+    
+
+
+
+- HashMap:
+  - HashMap is same as Hashset, 
+  - Unordered key value pair.
+  - faster than LinkedHashMap
+  - Uses Hashing so searching is faster and efficient
+  - random order and Not sorted.
+  - Advantages : quick insertion , search , and deletion.
+- LinkedHashMap:
+    - Same Order as input
+    - Not Sorted map
+    - uses doubly - linked list.
+- TreeHashMap :
+    - Sorted map based on keys
+

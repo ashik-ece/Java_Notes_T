@@ -1,0 +1,70 @@
+Reference link : 
+
+My notes:
+
+- <>
+- Generics : to make sure java allows only one specific datatype to be entered in your datastrcutures or collections.
+- Before generics, we can store any type of objects in the collection, i.e., non-generic. Now generics force the Java programmer to store a specific type of objects. 
+
+Advantages of Generics :
+
+i) Type - Safety
+ii) Type Casting is not required.
+iii) Compile Time Checking 
+iv) Code reusability.
+
+
+   - 4 types :
+    - generic clas -> <T>
+    - bounded generics -> extends
+    - generic methods
+    - wildcard generic method
+
+
+A) Generic class :
+
+public class Gen<T>( {
+  public T i;
+}
+
+Gen<Intger> gen = new Gen(1000);  // if we pass a string in Gen, it will throw error
+
+- the T is the type which is provided by the user, when he creates an object for the class. 
+- this eleminates the need for code duplication (we need not to write the same code once again if we want to implement it with different datatype)
+
+B) Bounded Generics: 
+
+- If we want to specify a generic, lets say we want to create an obj to store a number(it can be int, float , double , long), in this case, we can use
+  bounded generics (bounding a genernic to a type - eg: number)
+
+public class Gen <T extends Number> { // this makes T to be a generic as well as that generic should be a number(int, float, double , long) 
+      public T i;
+}
+
+- Number is the parent classs of the four datatype
+
+C) Generic Methods:
+
+- if you want to apply the generic method only for a method and not the whole class, we make use of this Generic method.
+- eg:
+    - public <T> void equals(T a, T b) {
+            a.equals(b);
+    }
+- now this method will accept two string, two integers etc, we do not need to duplicate the code to make it work for string and int and etc.
+
+D) Wild Card Generic Method :
+
+- public <T> void equals (List <T> arrayList, T b) {
+        arrayList.add(b);
+}
+- in the above example, Whatever type we are defining at T, it will be the same for the arrayList as well.
+    - but i dont want that, i want the arraList to be any type (i want the arrayList to accept any type) 
+    - to do that, we use Wild Card Generic Method.
+
+- public <T> void equals (List <?> arraList, T b) {
+                // logic    
+        }
+
+- Therefore my arrayList is not depended upon the <T>.
+- This is called as Wild card Generic Method.
+

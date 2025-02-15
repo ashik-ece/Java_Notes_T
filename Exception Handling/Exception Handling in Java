@@ -1,0 +1,7 @@
+Notes :
+
+- if java is encountering a error in a particular line, it stopes the entire program and doesnt execute the lines below it.
+- if java is encountering a error in a particular line, the entire program will terminate. it wont go to the next line
+- to make the erroless code execute, we need exception handling.
+- error in programming is called as exception. 
+- two types : complie time and run time exception. 

@@ -1,0 +1,21 @@
+WHAT IS QUEUE?
+- Queue Interface maintains FIFO (First in First out)
+- There is no queue class (we will discuss abt priortiyQueue class later), hence we use Linkedlist
+- This interface is dedicated to storing all the elements where the order of the elements matter.
+- For example, whenever we try to book a ticket, the tickets are sold on a first come first serve basis. Therefore, the person whose request arrives first into the queue gets the ticket. 
+- there are various classes like PriorityQueue , ArrayDeque etc, but the most frequently used implementation of the queue interface is PriorityQueue.
+- eg : Queue <T> pq = new PriorityQueue<>();
+
+- Queue<Integer> queue = new Linkedlist<>();
+
+  queue.add(100);
+  queue.add(10);
+  queue.adad(1);
+
+  Sysout(queue.peek());
+  - peek method will go to the queue data strcuture and it will peek(return) whos at the first of the data structure. ( in the above case, 100 wil be the output)\
+  - he just peaks and see whos at the first method  
+
+- Sysout (queue.poll());
+
+  - poll will return the first value of the queue same as peek, but, poll will also remove that value from the queue.

@@ -1,0 +1,20 @@
+STACK :
+
+- Stack<Integer> = new Stack<>();
+
+stack.add(100);
+stack.add(10);
+stack.add(1);
+
+- Stack follows Last in First out (LIFO)
+
+
+- Sysout(stack.peek());
+  - Here peek prints(peeks) the last value, as that is the first element that is outed first.
+- System.out.println(stack.pop());
+  - pop method, deletes/removes the last element (LIFO).
+
+
+
+- Whatever error / exception we have in our java, the messages / method names (which are the exception) are stored in stack data structure.
+- whatever function calls its stores in java as stack.

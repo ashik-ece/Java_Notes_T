@@ -1,0 +1,41 @@
+WEB : collection of  Different documents (HTML, CSS, PHP, xml, JS, cloud etc) that can be distributed/shared among computers in the network called as web.
+Internet : International + Network
+HTTP : HyperText Transfer Protocol - the set of rules used for transfering data from one system to another (from one browser(cilent) to the server)
+Protocol : A set of rules are implemented when some devices communicate with each other.
+HyperText : Some text acting as a resouce for some other text/data (links)
+Client : Our pc / host pc / browser
+Server : Something (which may be a machine/application) which provides services to the client.
+Network : Connecting different computers together, where each computer is called a Node.
+HTTP Request : It is a Packet of information that one computer sends to another computer to communicate something. (to send data)
+HTTP Response : It is the packet of information sent by Server to the client in response to an earlier request made by the client.
+
+- HTTP is a protocol that clients and servers use on the web to communicate 
+
+- For communicating between client and server we use the concept of HTTP Request and HTTP response.
+- server is providing services to the client and client is accepting services from the server.
+
+Client - Server Architecture.
+ -eg : 1o computers connected in a network and 1 printer, here the computers are client and printer is server, as it is providing printing services to the client.
+ - when we enter any url in the browser (google.com) and press enter, our browser becomes the client, and an HTTP request object is created , and sent to the server, it gets processed in the server 
+   and it connects with the database and gives the HTTP Response back to the client.
+
+- A Web application is a request response application or a client seriver application.
+- The combination of request and response is what we call it as WEB TRANSACTION.
+
+Difference between GET and POST
+
+- HTTP GET :
+    - Data is sent in header
+    - limited data is sent
+    - not secured
+    - can be bookmarked
+    - Data is sent as a query String along with the URL itself the data will be sent. 
+- HTTP POST:
+    - Data is sent in request body
+    - Large amount of data is sent
+    - It is secured
+    - Cannot be bookmarked.
+    - The Data is sent along with HTTP request Object.
+
+
+

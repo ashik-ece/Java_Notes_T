@@ -1,0 +1,49 @@
+Spring : Its a Librabry/framework from java which is used to develop frontend and backend of a application
+  - Less code usage because of spring
+  - other frameworks : jsp, jsf, java EE
+  - spring is lightweight and requries less code.
+
+- Without spring, A Java application is heavily dependent on creation of objects ( Tight - coupling)
+      - to make an apllication loosely coupled, we use interface / overriding ( and using parents to create refernce variable and child class to create object)
+      - it is still dependend on creation of object. so to delegate this action to someone else, we use IOC (Inversion of control)
+
+- Giving the control of creating objects to someone - Inversion of Control (IOC)
+
+- to do this, we need a mavern project
+- the spring context will be asking for config.xml (Which is stored in resources folder)
+- In config.xml, we configure the urls for beans
+
+in cofig.xml
+  <bean id = "myCricketCoach" class = "demo.CricketCoach"> </bean>
+  <bean id = "myFoodBallCoach" class = "demo.FootBallCoach"> </bean>
+
+- in the class where we want to create object, we use :
+    ClasspathXmlApplicationContext context = new ClasspathXmlApplicationContext("config.xml"); // get the configuration from the xml and load it in the context object.
+- the context will be having beans, so we will make use of those beans.
+    - Coach coach = context.getBean("myCricketCoach", Coach.class); // we have to mention our bean id in .getBean() as a argument
+      Sysout(coach.getDailyWorkout());
+
+- Now, we want spring to create and maintain the object -> IOC
+
+- When an object is created and managed by Spring, It is called as a Bean.
+
+- All the beans under config.xml is created in context, whichever we mention in the .getBean() method will get called.
+- This is IOC.
+- After we are done with this, we need to close the context by : context.close(); [we can use try with resource block as well]
+
+to have inhertance and taking in object as parameter, we can do this: 
+  - first we create a bean for the new class:
+    - <bean id = "myWish" class = "com.HappyWish"> </bean>
+  - now lets say the cricketcoahch classess object is depended on HappyWish object, so
+      <bean id = "myCricketCoach" class = "demo.CricketCoach">
+          <constructor -arg ref = "myWish"> </constructor - arg>
+      </bean>
+- this is same as writing this in class :
+    Coach coach = new CricketCoach(new HappyWishService());
+- This is called as Dependency Injection (DI) : your bean is depended on other bean. we are injecting a bean to CricketCoach.
+
+- there are multiple ways to do DI, one way is through constructor (which we said above)
+
+Dependecy Injection: (Verify)
+- Setter methods.
+- Constructor 

@@ -92,10 +92,18 @@ WHAT IS A SERVLET : A servlet is a Java file which can take the request from the
 - How to create servlet :
         - its a normal class which extends HttpServlet (this httpServlet will provide us all the features that we need)
             - features as in : 
-                - takes request from the client
+                - takes request from the server (which in turns takes the request from the client)
                 - processing the request
                 - sending the response
 
+- that response will be in HTML, JSON, XML format
+- so that response page (abc.html) will go to the server and back to the client in the form of  response object.
+
+HOW TO AVOID WEB.XML:
+        - In Servlet 3.0, we got a new feature called as Annotations.
+        - with the help of annotations we can map the servlets to a specific request/url without needing web.xml
+        - so we dont need web.xml
+        - annotations help with mapping of servlets.
 
 
 

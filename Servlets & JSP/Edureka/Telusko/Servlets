@@ -1,0 +1,9 @@
+SERVLETS : 
+
+
+- How to create servlet :
+        - its a normal class which extends HttpServlet (this httpServlet will provide us all the features that we need)
+            - features as in : 
+                - takes request from the client(or server, im not sure)
+                - processing the request
+                - sending the response

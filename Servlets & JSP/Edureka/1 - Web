@@ -22,6 +22,13 @@ Client - Server Architecture.
 - A Web application is a request response application or a client seriver application.
 - The combination of request and response is what we call it as WEB TRANSACTION.
 
+- HTTP protocol has certain methods we can work with : GET, POST, PUT, DELETE, OPTIONS
+  - whenever we want send data to the server, we use the POST request
+  - whenever we want to fetch data from the server, we use GET request.
+
+- in servelt, unless me metion the method, it takes the default method as GET
+- POST will not put our data in the url, whereas GET puts on data in the url
+
 Difference between GET and POST
 
 - HTTP GET :
@@ -36,6 +43,8 @@ Difference between GET and POST
     - It is secured
     - Cannot be bookmarked.
     - The Data is sent along with HTTP request Object.
+
+
 
 
 

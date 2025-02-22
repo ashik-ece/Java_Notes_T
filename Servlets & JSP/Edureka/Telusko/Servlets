@@ -1,9 +1,80 @@
 SERVLETS : 
 
+What is a Servlet?
+A servlet is a Java class that handles HTTP requests and responses.
+It runs on a web server (like Apache Tomcat) and is used to create dynamic web content. 
+Servlets extend the HttpServlet class, which provides methods to handle HTTP requests (GET, POST, etc.).
+
+
+How a Servlet Works:
+Receives Request: The servlet receives an HTTP request from the client (e.g., a web browser). The client sends the request to the server, and the server forwards it to the appropriate servlet.
+
+Processes Request: The servlet processes the request (e.g., retrieves data from a database, performs calculations, etc.).
+
+Sends Response: The servlet sends an HTTP response back to the client (e.g., HTML, JSON, etc.).
+
+Key Points:
+The client (e.g., a browser) sends the HTTP request to the server.
+
+The server forwards the request to the servlet.
+
+The servlet processes the request and sends a response back to the client via the server.
+
+
+Servlet Request Flow:
+
+Client Sends Request:
+
+        The client (e.g., a web browser) sends an HTTP request (e.g., GET or POST) to the web server (e.g., Apache Tomcat).
+
+Server Receives Request:
+
+        The web server receives the HTTP request from the client.
+
+Server Forwards Request to Servlet:
+
+        The web server determines which servlet should handle the request based on the URL mapping (defined in web.xml or annotations).
+
+        The server then forwards the request to the appropriate servlet.
+
+Servlet Processes Request:
+
+        The servlet receives the request from the server.
+
+It processes the request (e.g., reads parameters, interacts with a database, etc.).
+
+        It generates a response (e.g., HTML, JSON, etc.).
+
+Servlet Sends Response to Server:
+
+        The servlet sends the response back to the server.
+
+Server Sends Response to Client:
+        The server sends the response back to the client
+
+Key Points:
+The servlet does not directly communicate with the client. It only interacts with the server.
+
+The server acts as an intermediary between the client and the servlet.
+
+The servlet receives the request from the server, processes it, and sends the response back to the server, which then forwards it to the client.
+
+
+
+
 
 - How to create servlet :
         - its a normal class which extends HttpServlet (this httpServlet will provide us all the features that we need)
             - features as in : 
-                - takes request from the client(or server, im not sure)
+                - takes request from the client
                 - processing the request
                 - sending the response
+
+
+
+
+MY NOTES :
+
+when the client sends the request to the server, expecting a page, which can be static or dynamic.
+
+

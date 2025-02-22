@@ -1,0 +1,5 @@
+- if we want to accpet only POST request, we can do that by using a method like : doPost() 
+    - this will only work with the post request and not get
+-  if we want to accpet only GET request, we can do that by using a method like : doGet() 
+    - this will only work with the GET request and not POST
+- the request always goes to the service() method and depending upon the request (req.getMethod()), it will call a doGet or a doPost method

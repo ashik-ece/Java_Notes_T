@@ -61,7 +61,33 @@ The servlet receives the request from the server, processes it, and sends the re
 
 
 
+MY NOTES :
 
+- when the client sends the request to the server, expecting a page, which can be static or dynamic. (the client can ask anything on the internet, but lets say it asks a static page)
+- static : already made
+  dynamic : made at runtime
+
+Static page:
+- the client sends the request asking for a static page, it goes to the server, on the server we already have the file and that file goes to the client as a response. REQUEST DONE.
+Dynamic page:
+- the client sends the request to the server, asking for a dynamic which is made at runtime, the request goes to the server, but the server dont have that file, so the server have to
+  make that page, it has to build that page, so that request goes to the helper application (web container)
+- this helper application is also called as web container.
+- Web container : Apache tomcat
+- In this web container, we will be having servlets.
+
+WHAT IS A SERVLET : A servlet is a Java file which can take the request from the client on the internet and it can process the request and provide a response in the format of 
+                    html page (common for web response), json , XML, etc
+
+- If we want a dynamic file lets say abc.html, since that file doesnt already exist in the server, the server sends the request to the web container (helper application)
+- in the web container , there are servlets which will process the request and send response.     
+        - BUT, in a web container there are N number of Servlets, each having its own function, how do we send the request for abc.html to the correct servlet that process abc.html?
+                - we do that with the help of Deployment Descriptor (DD) - Web.xml
+- in the web.xml, we mention, for which request, which servlet should be called.
+        - every request will be mapped with a servlet. (with the use of web.xml file)
+- in web.xml file, we have two tag
+        - Servlet tag : Mention class-name
+        - Servlet mapping tag : url-pattern (for this url we need to that particular servlet)
 
 - How to create servlet :
         - its a normal class which extends HttpServlet (this httpServlet will provide us all the features that we need)
@@ -71,10 +97,5 @@ The servlet receives the request from the server, processes it, and sends the re
                 - sending the response
 
 
-
-
-MY NOTES :
-
-when the client sends the request to the server, expecting a page, which can be static or dynamic.
 
 

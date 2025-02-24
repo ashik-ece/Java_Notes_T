@@ -1,0 +1,34 @@
+Servlet Life cycle :
+- Init
+- Service
+- Destroy
+
+- In the service method, we took two objects as parameters, HttpServletRequest and HttpServletResponse object.
+  - Why do we have this?
+    - lets say the client wants the servlet(server) to add two numbers, we have to first send the request and we also have to pass those two values (which is to be added)
+
+  - How do we pass those two values (or any data)?
+    - if we want to pass it any values/data to the server from the client, it needed to send it in some format.
+    - And since we are working with java , we are with Objects.
+    - Hence, we can send them in a objects format.
+    - Therefore, the object which is going from the client to the server, will be called as Request Object.
+    - Request Object is an Object which will hold your values (which is to be sent).
+    - Once the Servlet got the request, it has to send a response right?
+
+  - When we send a Response:
+    - We send the response(data) in the form of Response Object.
+    - This Response Object will have all the data the client needs.
+
+  - What we send as a response?
+    - We send data, HTML tags, text, video, image, etc, in object called as Response Object.
+
+
+  - The Request Object has all the data the Servlet(Server) needs
+  - The Response Object has all the data the Client Needs.
+
+  - We dont have to create object (using new ) of HttpServlet Req or REs, our Tomcat will provide/give us the object. We have to specify what we want and tomcat will provide us.
+
+- In the Service method we have to specify the references and the tomcat will provide objects to that references. 
+
+- httpServletRequest and HttpServletResponse is an Interface.
+  - but the implementation is done by the tomcat and the object is given by the tomcat.

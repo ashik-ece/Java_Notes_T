@@ -1,0 +1,39 @@
+
+
+- So we have a method called as Sendredirect() in servlet, using which the client know that it is getting redirected to the next servlet
+- in the requestdispatcher method, servlet 1 will call servlet 2 , and the cliet have no idea which servlet is getting called.
+    - Rd is for server-side forwarding
+- in the sendredirect method, Servlet 1 will inform the browser(client) that hey you are getting redirecrted to S2. 
+    - the redirect happens on the client side
+
+
+
+SendRedirect:
+- Imagine we have a browser(client), sends a requst to Servlet 1(S1), [Lets call this request - 1]
+- Now S1 cant directly call S2,
+- S1 will inform browser to call S2 (in the form of Response 1)
+- Now the client will send the request to S2 [request - 2] 
+- and the client will get the new response from S2 to client [response - 2]
+
+
+NOTE : In Send Redirect, we get two different Request from the client 
+
+- in RD, we were using same object to send data
+    - eg : lets say i want to forward X = 5 value from S1 to S2, i can do that in requestDispatcher with the help of request object. i cant do that in redirect.
+    - this is because in redirect, we are using two different request objects (req1 and req2) whereas in RD, we use only one request object.
+
+
+- Now in Send Redirect, if we want to transfer/forward a data lets say x = 6 from S1 to S2, we do that with the help of Session Management
+
+When to Use Which?
+
+Use sendRedirect when:
+- You need to redirect to an external resource or a different domain.
+- You want the browser's URL to change.
+- You don't need to preserve request attributes.
+
+Use RequestDispatcher when:
+
+- You want to forward the request within the same application.
+- You need to share request attributes between resources.
+- You want better performance by avoiding an extra round trip.

@@ -1,0 +1,15 @@
+- till now we have been calling servlet from a page.
+- to call the servlet from the servlet we use : res.sendRedirect(location) [res : response object]
+- Request dispacter and   redirect.
+
+- A request dispatcher dispatches the request from one servlet to another.
+
+requestDispatcher rd = req.getRequestDispatcher([url-of-servlet]);
+rd.foward(req,res);
+
+if we want to forward the data k to the Sq servlet, we can use session management
+  - we will use Request [requestObject].setAttribute([variable Name], [the variable(data) which is to be sent to another servlet])
+    eg : req.setAttribute("k", k);
+  - Then in the another Servlet, store it in a variable using [request Object].getAttribute([variable Name]);
+      - the getAttrivute will return a object, typecast it into apporioptate datatype.
+      - eg : int k = (int) req.SetAttribute("k");

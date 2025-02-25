@@ -1,0 +1,61 @@
+SESSION : whenever we go to a web application, The tomcat will maintain a Session for Us.
+- A session is there throughout the visit in website. (provided we dont close the session or remove the value from the session)
+- if S1 calls S2 and S2 calls S3, since theres a session, theres data consistency/maintanance.
+  - All we need to do is to put the data in Session
+  - we can use the data in the next Sevlet
+
+- HOW?
+  - HttpSession:
+    - Its an Interface. 
+
+in S1:
+  - HttpSession session =  req.getSession(); //(the object is given by the tomcat itself)
+    session.setAttribute([name], [value]);
+        - eg: session.setAttribute("k", k);
+    responseObject.sendRedirect("S2");
+        - eg : res.sendRedirect("Sq");
+
+in S2:
+  - HttpSession session = req.getSession();
+    session.getAttribute([name])
+      - eg: session,getAttribute("k"); // this will be in object, we need to typecast to our datatype
+
+    int k = (int) session.getAttribute("k");
+
+
+  To remove a value during a session
+
+  In S2:
+    - HttpSession session = req.getSession();
+      session.removeAttribute([name]);
+        - eg: session.removeAttribute("k");
+  - once we removed the attribute, we cannot fetch the value of k.
+
+- Normaly we use session for login (when we login to a page, we can maintain a session)
+
+
+COOKIES :
+
+- Whenever we send request to the server and the server sends a response, i
+- The response object coming from the server will have a cookie and 
+- When we send request to S2 (Sq Servlet), we can send the same cookie again.
+- the difference would be , the cookie is coming to the client side, and it is again is sent to server (same cookie)
+- cookie is like a token, its given the first time, so that it can used in the second time
+
+
+Cookie cookie = new Cookie([name], [value]);
+  - eg : Cookie cookie = new Cookkie("k", k + ""); // the value should be a string, so we append "" to make the value a string.
+      - Integer + "" = String
+  - res.addCookie(cookie);
+
+- This means that the addServlet (S1) will send the response to the client and the client again sends the request to the S2 Servlet
+- While sending the request to S2 Servlet, it will send the cookie as well.
+
+- So in S2, we need to accept the cookie
+  - Cookie cookies[] = req.getCookies(); // this is reutrn all the cookies in a Array of Coookies.(its possible that the client will have multiple cookies)
+- to find our cookie in cookies array:
+  -   for(Cookies c : cookies) {
+      if(c.getName().equals("k"));
+      k = Integer.parseInt(c.getValue());
+  }
+    

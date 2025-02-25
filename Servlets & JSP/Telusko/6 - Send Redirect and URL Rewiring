@@ -1,0 +1,23 @@
+- send redirect method belongs to response object.
+- res.sendRedirect("S2"); // this willl redirect from where it is called(S1) to where its mentioned in the parameter(S2)
+- in requestdispatcher, the request comes from S1 (add in this case)
+- whereas in send redirect, the request comes from S2 (sq in this case)
+
+- so the client is sending two request, add request and Sq request (S1 and S2 )
+
+
+HOW TO SEND DATA IN SEND REDIRECT:
+
+- in the S1, we mention 
+  - res.sendRedirect("sq?K: " + k) // whatever we send inside this sendRedirect will be in the URL
+- in the S2, we mention
+  - int k = Integer.parseInt(req.getParameter("k"));
+
+
+- we are able to do this by Session Management
+
+SESSION MANAGEMENT :
+  - URL Writing (the concept used here)
+  - Cookies
+  - Session
+  

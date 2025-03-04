@@ -1,0 +1,59 @@
+- we use these two things to get the initial value for servlet or for the application
+- usallly we specify extra information in the web.xml file which we can use while coding servlets.
+- in the context param, we can specify through param name,value pair.
+- lets say if i want to specify my name and the phone im using, the way i can do that is: 
+    - in the web.xml, we will use a tag called as 
+      <context-param>
+      <param-name> name </param-name>
+      <param-value> Ashik </param-value>
+      </context-param>
+
+      <context-param>
+      <param-name> Phone </param-name>
+      <param-value> Samsung </param-value>
+      </context-param>
+
+NOW HOW WILL WE USE IT?
+- Now to fetch the value of the name or phone, we need to use a special object, 
+- We have to create an object of Servlet Context.
+  - In the Servlet.java file, inside the doGet method :
+      - PrintWriter out = response.getWriter();
+        out.print("HI ");
+
+        ServletContext ctx = getServletContext();
+        String str = ctx.getInitParameter("name");
+        String str1 = ctx.getInitParameter("Phone");
+        out.println(str);
+
+- Servlet Context and Servlet Config both are Interfaces
+- we dont need to instanstiate object, tomcat will take care of it, and give us an object, to access the object
+  There are multiple ways :
+    - we use getServletContext(); // we are getting this method from HttpServlet
+    - request.getServletContext();
+
+- getInitParameter() is a method which will give us the value of the attribute(param-name) which we specify.
+    - eg: if we specify name there, it will give us the value of the name.
+
+- ServletContext is an Object which will be shared by all the servlets. which means, if we specify the param-name&value in the web.xml, it will be shared by all the Servlets.
+- What if we want different configuration/values for different Servlets.
+  - eg: when i say name, Some a specific servlet i need it to be Naveen instead of AShik, and the way to do that, is in the servlet tag itself.
+    because, Servlet Config works with the particular Servlet tag itself.
+  - So if we have 5 servlets, in total we will get 5 Servlet config objects and only one genral Servlet Context object which is shared by all the servlets.
+
+- Servlet Config Impl:
+
+  - in the web.xml, in the Servlet tag (for the specific servlet which we want to specify)
+        - <servlet>
+         <init-param>
+        <param-name> name </param-name>
+        <param-value> Naveen </param-value>
+        </init-param>
+        </servlet>
+    - after specifying in web.xml, go to that specific servlet and :
+      - ServletConfig cg = getServletConfig();
+        String str = cg.getInitParameter("name");
+        out.println(str);
+- Even if we have ServletContext param-name mentioned as Ashik, since we mentioned in the particular Servlet name as Naveen, when we use Servlet config for that particular Servlet
+  it will take the value of Servlet config over Servlet Context
+- So Servlet config is to set values for a specific servlet(mentioned in the servlet tag itself, and ServletContext is common to all the Servlets,
+        

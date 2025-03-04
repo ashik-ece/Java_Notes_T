@@ -1,0 +1,3 @@
+- In this we will see, how we can configure servlets with the help of annotations
+- We configure all the servlet in web.xml (Deployment descriptor)
+- but we can skip using xml, by using Annotations.
